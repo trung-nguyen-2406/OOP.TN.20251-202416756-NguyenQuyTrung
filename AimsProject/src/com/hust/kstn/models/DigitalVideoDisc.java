@@ -1,9 +1,9 @@
 package com.hust.kstn.models;
 
-import java.util.Random;
 
 public class DigitalVideoDisc {
-	private String id;
+	private static int nbDigitalVideoDiscs = 0;
+	private int id;
 	private String title;
 	private String category;
 	private String director;
@@ -14,22 +14,22 @@ public class DigitalVideoDisc {
 	
 	public DigitalVideoDisc(String title) {
 		this.title = title;
-		this.id = generateRandomString(10);
 		this.weight = DEFAULT_WEIGHT;
+		this.id = ++nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc( String title, String category) {
 		this.title = title;
 		this.category = category;
-		this.id = generateRandomString(10);
 		this.weight = DEFAULT_WEIGHT;
+		this.id = ++nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title, String category, String director, double cost) {
 		this.title = title;
 		this.category = category;
 		this.director = director;
 		this.cost = cost;
-		this.id = generateRandomString(10);
 		this.weight = DEFAULT_WEIGHT;
+		this.id = ++nbDigitalVideoDiscs;
 	}
 	public DigitalVideoDisc(String title, String category, String director, int length, double cost) {
 		this.title = title;
@@ -37,18 +37,18 @@ public class DigitalVideoDisc {
 		this.director = director;
 		this.cost = cost;
 		this.length = length;
-		this.id = generateRandomString(10);
 		this.weight = DEFAULT_WEIGHT;
+		this.id = ++nbDigitalVideoDiscs;
 	}
 	
-	public DigitalVideoDisc(String id, String title, String category, String director, int length, double cost, double weight) {
+	public DigitalVideoDisc(String title, String category, String director, int length, double cost, double weight) {
 		this.title = title;
 		this.category = category;
 		this.director = director;
 		this.cost = cost;
 		this.length = length;
-		this.id = id;
 		this.weight = weight;
+		this.id = ++nbDigitalVideoDiscs;
 	}
 	
 	public String getTitle() {
@@ -66,21 +66,11 @@ public class DigitalVideoDisc {
 	public double getCost() {
 		return cost;
 	}
-	public String getID() {
-		return id;
-	}
 	public double getWeight() {
 		return weight;
 	}
-	
-	private String generateRandomString(int length) {
-		String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-		StringBuilder s = new StringBuilder(length);
-		Random random = new Random();
-		for (int i = 0; i < length; i++) {
-			s.append(characters.charAt(random.nextInt(characters.length())));
-		}
-		return s.toString();
+	public int getID() {
+		return id;
 	}
 	
 }

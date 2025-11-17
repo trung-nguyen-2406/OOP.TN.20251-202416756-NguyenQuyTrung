@@ -47,9 +47,6 @@ public class Cart {
 		return true;
 	}
 
-	
-
-
 	public boolean removeDVD(DigitalVideoDisc disc) {
 		if (qtyOrdered == 0) {
 			System.out.println("The cart is empty");
@@ -94,12 +91,12 @@ public class Cart {
 		return itemsInCart2;
 	}
 	
-	public DigitalVideoDisc[] findDVD(String id) {
+	public DigitalVideoDisc[] findDVD(int id) {
 	    DigitalVideoDisc[] result = new DigitalVideoDisc[MAX_NUMBER_ORDERED];
 	    int counter = 0;
 	    for (int i = 0; i < qtyOrdered; i++) {
 	        DigitalVideoDisc d = itemsInCart[i];
-	        if (d != null && id.equals(d.getID())) {
+	        if (d != null && id == d.getID()) {
 	            result[counter++] = d;
 	        }
 	    }
