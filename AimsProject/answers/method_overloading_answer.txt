@@ -1,0 +1,5 @@
+- Khi thêm phương thức addDVD(DigitalVideoDisc …discs), trình duyệt báo lỗi ở hai vị trí:
+    "Duplicate method addDVD(DigitalVideoDisc[]) in type Cart",
+    "Duplicate method addDVD(DigitalVideoDisc...) in type Cart"
+- Lí do: DigitalVideoDisc... tương đương với truyền một mảng tham số DigitalVideoDisc[], dẫn đến có 2 phương thức trùng chữ ký.
+- Cách giải quyết: bỏ một trong hai phương thức (em bỏ phương thức DigitalVideoDisc...)
