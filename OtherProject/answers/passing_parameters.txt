@@ -1,0 +1,50 @@
+- Tại sao sau khi chạy phương thức swap(s1,s2) thì tên của hai học sinh vẫn không thay đổi? Từ đó, Java là ngôn ngữ truyền tham trị hay truyền tham chiếu?
++ Trong Java, các tham số luôn được truyền theo tham trị nên khi truyền một biến, giá trị được truyền vào chỉ là bản sao của biến đó nên các biến s1 s2 không bị thay đổi ngoài hàm gọi.
+-> Java truyền tham trị
+
+- Làm sao để swap thật sự tráo đổi thông tin của hai đối tượng được truyền vào?
++ Hoán đổi nội dung của các biến (tất cả các thuộc tính.)
+
+- Vẽ sơ đồ minh họa cho các vùng nhớ stack và heap trong trường hợp này để chứng minh cách bạn đưa ra đã hoạt động đúng.
+
+
+STACK                          HEAP
+(main)
+s1  ----->   "StudentA"  -->  id=1 , name="A"
+s2  ----->   "StudentB"  -->  id=2 , name="B"
+
+STACK                          HEAP
+(main)
+s1 ---> "StudentA"
+s2 ---> "StudentB"
+(swap)
+tmpId = 1                    "StudentA" -> id=1, name="A"
+tmpName = "A"                "StudentB" -> id=2, name="B"
+s1 ----> "StudentA"            
+s2 ----> "StudentB"
+
+STACK                          HEAP
+(main)
+s1 ---> "StudentA"
+s2 ---> "StudentB"
+(swap) (sau khi chép thông tin B vào A)
+tmpId = 1                    "StudentA" -> id=2, name="B"
+tmpName = "A"                "StudentB" -> id=2, name="B"
+s1 ----> "StudentA"            
+s2 ----> "StudentB"
+
+STACK                          HEAP
+(main)
+s1 ---> "StudentA"
+s2 ---> "StudentB"
+(swap) (sau khi s2 chép thông tin từ 2 biến phụ)
+tmpId = 1                    "StudentA" -> id=2, name="B"
+tmpName = "A"                "StudentB" -> id=1, name="A"
+s1 ----> "StudentA"            
+s2 ----> "StudentB"
+
+
+STACK                          HEAP
+(main)
+s1  ----->  [ "StudentA" ] -->  id=2 , name="B"
+s2  ----->  [ "StudentB" ] -->  id=1 , name="A"
