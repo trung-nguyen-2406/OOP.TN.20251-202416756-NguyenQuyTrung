@@ -1,0 +1,7 @@
+- Hãy nêu ý nghĩa của từ khóa super trong ví dụ cho mã nguồn của lớp Book ở phía trên.
++ Book khởi tạo các thuộc tính thừa hưởng từ lớp cha, giúp các thuộc tính chung được thiết lập theo cách ở lớp cha,code không lặp lại, và tuân thủ nguyên tắc kế thừa.
+
+- Tại sao Java chỉ cho đơn kế thừa (mà không phải là đa kế thừa như những ngôn ngữ lập trình khác, như C++)?
++ Đa kế thừa dễ dẫn đến mâu thuẫn (2 lớp cha đều có cùng một hàm cùng chữ kí thì không biết gọi hàm nào)
++ Java là một ngôn ngữ hướng đến chặt chẽ, an toàn nên cấm đa thừa kế.
++ Dùng interface nếu muốn có đa kế thừa.
